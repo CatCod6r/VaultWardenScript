@@ -25,3 +25,9 @@ jobs:
             # you usually just need to rebuild the Docker containers on an update.
             docker compose down
             docker compose up -d --build
+      - name: Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'

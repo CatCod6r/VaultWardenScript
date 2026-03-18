@@ -1,6 +1,7 @@
 # 🛡️ VaultWarden-Deploy
 > **The one-command setup for a private, high-performance Vaultwarden instance on Ubuntu 24.04.**
 
+
 [![Ubuntu 24.04](https://img.shields.io/badge/OS-Ubuntu_24.04-orange?style=flat-square&logo=ubuntu)](https://ubuntu.com/)
 [![Docker](https://img.shields.io/badge/Docker-Compose-blue?style=flat-square&logo=docker)](https://www.docker.com/)
 [![Nginx](https://img.shields.io/badge/Proxy-Nginx-green?style=flat-square&logo=nginx)](https://nginx.org/)

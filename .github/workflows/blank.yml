@@ -18,7 +18,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           # This is the exact sequence of commands GitHub will run on your server
           script: |
-            cd /path/to/your/VaultWardenScript
+            cd vaultwarden
             git pull origin main
             
             # Since Nginx and Certbot are already set up, 

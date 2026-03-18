@@ -1,0 +1,27 @@
+name: Deploy to VPS
+
+# This tells GitHub to run this script every time you push to the 'main' branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Deployment Commands via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # This is the exact sequence of commands GitHub will run on your server
+          script: |
+            cd /path/to/your/VaultWardenScript
+            git pull origin main
+            
+            # Since Nginx and Certbot are already set up, 
+            # you usually just need to rebuild the Docker containers on an update.
+            docker compose down
+            docker compose up -d --build

@@ -8,4 +8,4 @@ scrape_configs:
       - targets: ['localhost:9090']
   - job_name: 'vaultwarden'
     static_configs:
-      - targets: ['localhost:80']
+      - targets: ['vaultwarden:80']

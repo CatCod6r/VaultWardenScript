@@ -16,9 +16,9 @@ fi
 # Configuring nginx
 echo "Configuring nginx"
 
-sudo sed "s|DOMAIN_NAME|$DOMAIN_NAME|g" ./vaultwarden \
-  | sudo tee /etc/nginx/sites-available/vaultwarden
-sudo ln -s /etc/nginx/sites-available/vaultwarden /etc/nginx/sites-enabled/
+sudo sed "s|DOMAIN_NAME|$DOMAIN_NAME|g" ./vaultwarden.conf \
+  | sudo tee /etc/nginx/sites-available/vaultwarden.conf
+sudo ln -s /etc/nginx/sites-available/vaultwarden.conf /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 

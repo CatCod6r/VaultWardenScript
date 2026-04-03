@@ -1,2 +1,4 @@
 .env
 data/
+#Ignoring generated config ith my webhook because scary
+alertmanager/alertmanager.yml

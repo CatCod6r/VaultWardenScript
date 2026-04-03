@@ -22,6 +22,10 @@ sudo ln -s /etc/nginx/sites-available/vaultwarden.conf /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl restart nginx
 
+# Setting up alertmanager with env value of discord webhook
+sudo sed "s|DISCORD_WEBHOOK_URL|$DISCORD_WEBHOOK_URL|g" ./alertmanager/alertmanager.yml.tmp \
+  | sudo tee ./alertmanager/alertmanager.yml 
+
 # Configuring Let's Encrypt
 echo "Configuring Let's Encrypt"
 sudo certbot --nginx -n --agree-tos --email $YOURE_EMAIL -d $DOMAIN_NAME

@@ -14,13 +14,20 @@ scrape_configs:
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
+
+  - job_name: 'blackbox_exporter'
+    static_configs:
+      - targets: ['blackbox-exporter:9115']
+
   - job_name: 'blackbox_vaultwarden_uptime'
     metrics_path: /probe
     params:
-      module: [http_2xx] 
+      module: [http_2xx]
     static_configs:
       - targets:
-        - http://vaultwarden:80
+        - http://vaultwarden
+        labels:
+          probe_type: http
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

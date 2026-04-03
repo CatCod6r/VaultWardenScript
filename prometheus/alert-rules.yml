@@ -1,0 +1,11 @@
+groups:
+  - name: container_health
+    rules:
+      - alert: BlackboxProbeFailed
+        expr: probe_success == 0
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: Blackbox probe failed (instance {{ $labels.instance }})
+          description: "Probe failed\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
